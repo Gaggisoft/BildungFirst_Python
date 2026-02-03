@@ -17,6 +17,9 @@ def test_produkt():
     assert produkt(-2, 4) == -8
     assert produkt(-2, -3) == 6
 
-def test_quotient():
+def test_quotient_normal():
     assert quotient(6, 3) == 2
+    assert quotient(-5, 2) == -2.5
+
+def test_quotient_teilen_durch_null():
     assert quotient(4, 0) == None

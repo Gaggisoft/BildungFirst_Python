@@ -1,0 +1,3 @@
+Python kann Dateien lesen.
+Python kann Dateien schreiben.
+Und wir testen Sonderfälle.

@@ -49,9 +49,5 @@ tordner.mkdir(exist_ok=True)
 (tordner / 'a.txt').write_text('Hallo\nWelt', encoding='utf-8')
 (tordner / 'b.txt').write_text('', encoding='utf-8')
 
-# Testdateien anlegen
-(tordner / 'a.txt').write_text('Hallo\nWelt', encoding='utf-8')
-(tordner / 'b.txt').write_text('', encoding='utf-8')
-
 # TESTS
 # -------------------------------------------------

@@ -3,6 +3,7 @@ from pathlib import Path
 # Basisordner festlegen
 # __file__ enthält Pfad zur .py Datei
 # .parent ist der Ordner, in dem die .py Datei liegt
+# globals() enthält alle globalen Variablen / Funktionen / importierten Module / Spezialvariablen (z. B. __file__)
 if '__file__' in globals():
     basis_ordner = Path(__file__).parent
 # ___file__ existiert nicht

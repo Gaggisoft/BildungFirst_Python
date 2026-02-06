@@ -11,92 +11,92 @@ def show_menu():
     print('5: Laden des Inventars')
     print('ENTER zum Beenden')
 
-    eingabe = input('Deine Auswahl: ')
+    selection = input('Deine Auswahl: ')
 
     # Ende?
-    if not eingabe:
+    if not selection:
         return None
     
     # Eingabe überprüfen
-    if not eingabe.isdigit():
+    if not selection.isdigit():
         print('Bitte eine Zahl eingeben')
         return None
     
     # Rückgabe der Eingabe
-    return int(eingabe)
+    return int(selection)
 
-def eingabe_produkt_menge(eingabe):
-    produkt = input('Produktname (oder ENTER zum Beenden): ').strip()
+def input_product_quantity(action):
+    product = input('Produktname (oder ENTER zum Beenden): ').strip()
 
     # Ende bei leerer Eingabe
-    if not produkt:
-        produkt = None
-        return produkt, None
+    if not product:
+        product = None
+        return product, None
 
     # Eingabe eines Produkts
-    menge = input(f'Wie viele {produkt} sollen {eingabe} werden? ').strip()
+    quantity = input(f'Wie viele {product} sollen {action} werden? ').strip()
 
     # Menge überprüfen
-    if not menge.isdigit():
+    if not quantity.isdigit():
         print('Bitte eine Zahl eingeben.')
-        menge = None
+        quantity = None
 
-    return produkt, menge
+    return product, quantity
 
 # Nutzer die Eingabe von Produkten ermöglichen
-def user_input(inventar):
+def user_input(inventory):
     while True:
         # Bedienungsmenü anzeigen
-        funktion = show_menu()
+        function = show_menu()
 
         # Eingabe verarbeiten
         # TODO: An bestehende Funktionen anpassen
-        match funktion:
+        match function:
             # Produkt hinzufügen
             case 1:
-                produkt, menge = eingabe_produkt_menge('hinzugefügt')
+                product, quantity = input_product_quantity('hinzugefügt')
                 # Ende bei leerer Eingabe oder keiner Menge
-                if produkt == None:
+                if product == None:
                     break
 
-                if menge == None:
+                if quantity == None:
                     continue
                 
                 # Produkt wird hinzugefügt
-                add_item(inventar, produkt, menge)
+                add_item(inventory, product, quantity)
 
             # Produkt entfernen
             case 2:
-                produkt, menge = eingabe_produkt_menge('entfernt')
+                product, quantity = input_product_quantity('entfernt')
                 # Ende bei leerer Eingabe
                 # Ende bei leerer Eingabe oder keiner Menge
-                if produkt == None:
+                if product == None:
                     break
 
-                if menge == None:
+                if quantity == None:
                     continue
 
                 # Produkt entfernen
-                remove_item(inventar, produkt, menge)
+                remove_item(inventory, product, quantity)
 
             # Inventar anzeigen
             case 3:
-                show_inventory(inventar)
+                show_inventory(inventory)
             
             # Speichern des Inventars als JSON
             case 4:
-                save_inventory(inventar)
+                save_inventory(inventory)
 
             # Laden des Inventars aus JSON
             case 5:
                 # load_inventory gibt ein neues dict zurück
-                geladenes_inventar = load_inventory()
+                loaded_inventory = load_inventory()
                 # Inventar leeren
-                inventar.clear()
+                inventory.clear()
                 # Inhalt des neuen dict in Inventar laden
-                inventar.update(geladenes_inventar)
+                inventory.update(loaded_inventory)
                 # neues dict löschen
-                del geladenes_inventar
+                del loaded_inventory
 
             # Default
             case _:

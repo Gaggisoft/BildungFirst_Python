@@ -1,12 +1,12 @@
 # Main
 
 # Datei mit Implementierung der Funktionalität einbinden
-from kd_start import start_inventar
+from kd_start import init_inventory
 from kd_bedienung import user_input
 from kd_funktion import show_inventory
 
 # leeres Dictionary erstellen
-inventar = start_inventar()
+inventar = init_inventory()
 # Nutzereingabe
 user_input(inventar)
 

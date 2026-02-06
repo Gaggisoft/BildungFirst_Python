@@ -4,7 +4,7 @@
 # 1. Fall: erster Start (keine JSON, leeres Inventar)
 # -----------------------------------------------------
 # neues Inventar anlegen
-def start_inventar():
+def init_inventory():
     # leeres dict zurückgeben
     return {}
 

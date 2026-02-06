@@ -42,19 +42,3 @@ def show_inventory(inventar):
     print('Kühlschrank-Inventar:')
     for produkt in sorted(inventar):
         print(f'- {produkt.title()}: {inventar[produkt]}')
-
-
-
-# TESTS
-#beispiel_inventar = {'milch': 3,
-#                     'apfel': 1}
-
-#print(beispiel_inventar.get('Milch', 0))
-#print(beispiel_inventar.get('Birne', -1))
-#produkt_entfernen(beispiel_inventar, 'Milch', 2)
-#print(beispiel_inventar)
-#produkt_entfernen(beispiel_inventar, 'Birne', 1)
-#print(beispiel_inventar)
-#produkt_entfernen(beispiel_inventar, 'Apfel', 2)
-#print(beispiel_inventar)
-#show_inventory(beispiel_inventar)

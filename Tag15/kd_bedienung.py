@@ -1,11 +1,14 @@
 from kd_funktion import add_item, remove_item, show_inventory
+from kd_json import save_inventory, load_inventory
 
 # TODO: Bei mehr Funktionen anpassen
 def show_menu():
-    print('--- Wähle bitte die gewünschte Funktion ---')
+    print('\n--- Wähle bitte die gewünschte Funktion ---')
     print('1: Produkt hinzufügen')
     print('2: Produkt entfernen')
     print('3: Inventar anzeigen')
+    print('4: Speichern des Inventars')
+    print('5: Laden des Inventars')
     print('ENTER zum Beenden')
 
     eingabe = input('Deine Auswahl: ')
@@ -77,6 +80,14 @@ def user_input(inventar):
             # Inventar anzeigen
             case 3:
                 show_inventory(inventar)
+            
+            # Speichern des Inventars als JSON
+            case 4:
+                save_inventory(inventar)
+
+            # Laden des Inventars aus JSON
+            case 5:
+                inventar = load_inventory()
 
             # Default
             case _:

@@ -5,11 +5,11 @@ from kd_start import init_inventory
 from kd_bedienung import user_input
 from kd_funktion import show_inventory
 
-# leeres Dictionary erstellen
-inventar = init_inventory()
-# Nutzereingabe
-user_input(inventar)
-
+if __name__ == '__main__':
+    inv = init_inventory()
+    user_input(inv)
+    print('\nFinaler Stand:')
+    show_inventory(inv)
 
 # TESTS
 #beispiel_inventar = {'milch': 3,

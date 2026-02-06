@@ -31,6 +31,7 @@ def eingabe_produkt_menge(eingabe):
     # Ende bei leerer Eingabe
     if not produkt:
         produkt = None
+        return produkt, None
 
     # Eingabe eines Produkts
     menge = input(f'Wie viele {produkt} sollen {eingabe} werden? ').strip()
@@ -54,10 +55,10 @@ def user_input(inventar):
             # Produkt hinzufügen
             case 1:
                 produkt, menge = eingabe_produkt_menge('hinzugefügt')
-                # Ende bei leerer Eingabe
+                # Ende bei leerer Eingabe oder keiner Menge
                 if produkt == None:
                     break
-                # Menge überprüfen
+
                 if menge == None:
                     continue
                 
@@ -68,9 +69,10 @@ def user_input(inventar):
             case 2:
                 produkt, menge = eingabe_produkt_menge('entfernt')
                 # Ende bei leerer Eingabe
+                # Ende bei leerer Eingabe oder keiner Menge
                 if produkt == None:
                     break
-                # Menge überprüfen
+
                 if menge == None:
                     continue
 
@@ -87,7 +89,14 @@ def user_input(inventar):
 
             # Laden des Inventars aus JSON
             case 5:
-                inventar = load_inventory()
+                # load_inventory gibt ein neues dict zurück
+                geladenes_inventar = load_inventory()
+                # Inventar leeren
+                inventar.clear()
+                # Inhalt des neuen dict in Inventar laden
+                inventar.update(geladenes_inventar)
+                # neues dict löschen
+                del geladenes_inventar
 
             # Default
             case _:
